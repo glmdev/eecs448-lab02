@@ -37,16 +37,16 @@ bool LinkedList<T>::search(T value) const
 {
 	Node<T>* temp = m_front;
 
-	if ( m_front === nullptr ) {
+	if ( m_front == nullptr ) {
 		return false;
 	}
 
 	while(true) {
-		if ( temp->getValue() === value ) {
+		if ( temp->getValue() == value ) {
 			return true;
 		}
 
-		if ( temp->getNext() === nullptr ) {
+		if ( temp->getNext() == nullptr ) {
 			return false;
 		} else {
 			temp = temp->getNext();
@@ -107,15 +107,14 @@ bool LinkedList<T>::removeBack()
 {
 	Node<T>* lastNode = nullptr;
 	Node<T>* secondToLast = nullptr;
-	bool isRemoved = false;
 
 	// if no elements, no delete
-	if ( m_front === nullptr ) {
+	if ( m_front == nullptr ) {
 		return false;
 	}
 
 	// if we delete the head of the list, just set m_front
-	if ( m_front->getNext() === nullptr ) {
+	if ( m_front->getNext() == nullptr ) {
 		delete m_front;
 		m_front = nullptr;
 		return true;
@@ -125,7 +124,7 @@ bool LinkedList<T>::removeBack()
 	lastNode = m_front->getNext();
 
 	while(true) {
-		if ( lastNode->getNext() === nullptr ) {
+		if ( lastNode->getNext() == nullptr ) {
 			// this really is the last node
 			delete lastNode;
 			secondToLast->setNext(nullptr);
